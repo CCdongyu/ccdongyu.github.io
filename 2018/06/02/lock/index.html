@@ -79,17 +79,17 @@
 
 
 
+<meta name="description" content="锁悲观锁和乐观锁悲观锁和乐观锁都是一种思想，描述临界区的出入口。 悲观锁：又叫独占锁。每次进入临界区前都会上锁，其他想要进入临界区的进程会被阻塞。乐观锁：每次进入临界区都不会上所，在进行数据更新的时候会检查数据是否被修改过。如果被修改过，则会更新失败并自旋。如JAVA的CAS。 似乎JAVA的synchronize似乎是乐观锁和悲观锁并用。 二值信号量和互斥量（互斥锁）在功能上相似，都可以保证临界">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/golang/index.html">
+<meta property="og:title" content="Lock">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/lock/index.html">
 <meta property="og:site_name" content="CCdongyu">
+<meta property="og:description" content="锁悲观锁和乐观锁悲观锁和乐观锁都是一种思想，描述临界区的出入口。 悲观锁：又叫独占锁。每次进入临界区前都会上锁，其他想要进入临界区的进程会被阻塞。乐观锁：每次进入临界区都不会上所，在进行数据更新的时候会检查数据是否被修改过。如果被修改过，则会更新失败并自旋。如JAVA的CAS。 似乎JAVA的synchronize似乎是乐观锁和悲观锁并用。 二值信号量和互斥量（互斥锁）在功能上相似，都可以保证临界">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/init_golang.png">
-<meta property="og:updated_time" content="2018-05-08T15:38:42.240Z">
+<meta property="og:updated_time" content="2018-06-02T13:42:31.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
+<meta name="twitter:title" content="Lock">
+<meta name="twitter:description" content="锁悲观锁和乐观锁悲观锁和乐观锁都是一种思想，描述临界区的出入口。 悲观锁：又叫独占锁。每次进入临界区前都会上锁，其他想要进入临界区的进程会被阻塞。乐观锁：每次进入临界区都不会上所，在进行数据更新的时候会检查数据是否被修改过。如果被修改过，则会更新失败并自旋。如JAVA的CAS。 似乎JAVA的synchronize似乎是乐观锁和悲观锁并用。 二值信号量和互斥量（互斥锁）在功能上相似，都可以保证临界">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/08/golang/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/lock/"/>
 
 
 
 
 
-  <title>Golang | CCdongyu</title>
+  <title>Lock | CCdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/golang/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/lock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Golang</h1>
+          <h1 class="post-title" itemprop="name headline">Lock</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T22:09:08+08:00">
-                2018-05-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T20:37:56+08:00">
+                2018-06-02
               </time>
             
 
@@ -299,12 +299,22 @@
       
 
       
-        <img src="/2018/05/08/golang/golang.jepg">
-<a id="more"></a>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><h3 id="The-init-function"><a href="#The-init-function" class="headerlink" title="The init function"></a>The init function</h3><p>Finally, each source file can define its own niladic init function to set up whatever state is required. (Actually each file can have multiple init functions.) And finally means finally: init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p>
-<p>Besides initializations that cannot be expressed as declarations, a common use of init functions is to verify or repair correctness of the program state before real execution begins.</p>
-<img src="/2018/05/08/golang/init_golang.png">
-<h3 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h3><p><a href="https://hackthology.com/object-oriented-inheritance-in-go.html" target="_blank" rel="noopener">Object Oriented Inheritance in Go </a></p>
+        <h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="悲观锁和乐观锁"><a href="#悲观锁和乐观锁" class="headerlink" title="悲观锁和乐观锁"></a>悲观锁和乐观锁</h3><p>悲观锁和乐观锁都是一种思想，描述临界区的出入口。</p>
+<p>悲观锁：又叫独占锁。每次进入临界区前都会上锁，其他想要进入临界区的进程会被阻塞。<br>乐观锁：每次进入临界区都不会上所，在进行数据更新的时候会检查数据是否被修改过。如果被修改过，则会更新失败并自旋。如JAVA的CAS。</p>
+<p>似乎JAVA的synchronize似乎是乐观锁和悲观锁并用。</p>
+<h3 id="二值信号量和互斥量（互斥锁）"><a href="#二值信号量和互斥量（互斥锁）" class="headerlink" title="二值信号量和互斥量（互斥锁）"></a>二值信号量和互斥量（互斥锁）</h3><p>在功能上相似，都可以保证临界区的互斥使用。<br>二值信号量会导致进程优先级倒置。</p>
+<p>###</p>
+<h2 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h2><p>访问共享资源的程序片段。<br>进程间互斥访问。</p>
+<h3 id="软件方法"><a href="#软件方法" class="headerlink" title="软件方法"></a>软件方法</h3><h4 id="轮换法"><a href="#轮换法" class="headerlink" title="轮换法"></a>轮换法</h4><p>略</p>
+<h4 id="标记法"><a href="#标记法" class="headerlink" title="标记法"></a>标记法</h4><p>略</p>
+<h4 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h4><p>Gary L. Peterson 于1981年提出（没找到这个人的资料），是实现互斥锁的算法。</p>
+<p>Peterson算法是轮换法和标记法的结合。</p>
+<p>turn（0或1）：表示能进入临界区的进程序号。<br>falg[0]和flag[1]：表示想要占用临界区的进程</p>
+<h4 id="面包店算法"><a href="#面包店算法" class="headerlink" title="面包店算法"></a>面包店算法</h4><p>多个进程间同步。</p>
+<p>###关中断</p>
+<p>不适合多核</p>
+<p>###原子操作</p>
+<p>借助硬件完成</p>
 
       
     </div>
@@ -329,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/docker/" rel="next" title="Docker">
-                <i class="fa fa-chevron-left"></i> Docker
+              <a href="/2018/05/25/startUML/" rel="next" title="StartUML">
+                <i class="fa fa-chevron-left"></i> StartUML
               </a>
             
           </div>
@@ -339,8 +349,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/08/hexo/" rel="prev" title="hexo">
-                hexo <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/02/devops/" rel="prev" title="devops">
+                devops <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -464,7 +474,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-init-function"><span class="nav-number">1.1.</span> <span class="nav-text">The init function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">1.2.</span> <span class="nav-text">Inheritance</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-number">1.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#悲观锁和乐观锁"><span class="nav-number">1.1.</span> <span class="nav-text">悲观锁和乐观锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二值信号量和互斥量（互斥锁）"><span class="nav-number">1.2.</span> <span class="nav-text">二值信号量和互斥量（互斥锁）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#临界区"><span class="nav-number">2.</span> <span class="nav-text">临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件方法"><span class="nav-number">2.1.</span> <span class="nav-text">软件方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#轮换法"><span class="nav-number">2.1.1.</span> <span class="nav-text">轮换法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记法"><span class="nav-number">2.1.2.</span> <span class="nav-text">标记法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Peterson算法"><span class="nav-number">2.1.3.</span> <span class="nav-text">Peterson算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面包店算法"><span class="nav-number">2.1.4.</span> <span class="nav-text">面包店算法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

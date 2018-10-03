@@ -79,17 +79,17 @@
 
 
 
+<meta name="description" content="MonitorMonitor是Java中多线程同步的重要概念，是synchronized关键字实现的重要基础。 Monitor和操作系统中的Binary Semaphore（也就是Mutex）类似，线程在访问共享资源的时候，首先要获取Monitor，然后才能对共享资源进行操作。 在Java中，每个对象都和特定的Monitor关联（包括Class对象）。如果一个线程拥有某个对象的Monitor，那么">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/golang/index.html">
+<meta property="og:title" content="Synchronize In Java">
+<meta property="og:url" content="http://yoursite.com/2018/07/09/synchronized/index.html">
 <meta property="og:site_name" content="CCdongyu">
+<meta property="og:description" content="MonitorMonitor是Java中多线程同步的重要概念，是synchronized关键字实现的重要基础。 Monitor和操作系统中的Binary Semaphore（也就是Mutex）类似，线程在访问共享资源的时候，首先要获取Monitor，然后才能对共享资源进行操作。 在Java中，每个对象都和特定的Monitor关联（包括Class对象）。如果一个线程拥有某个对象的Monitor，那么">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/init_golang.png">
-<meta property="og:updated_time" content="2018-05-08T15:38:42.240Z">
+<meta property="og:updated_time" content="2018-07-10T06:37:05.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
+<meta name="twitter:title" content="Synchronize In Java">
+<meta name="twitter:description" content="MonitorMonitor是Java中多线程同步的重要概念，是synchronized关键字实现的重要基础。 Monitor和操作系统中的Binary Semaphore（也就是Mutex）类似，线程在访问共享资源的时候，首先要获取Monitor，然后才能对共享资源进行操作。 在Java中，每个对象都和特定的Monitor关联（包括Class对象）。如果一个线程拥有某个对象的Monitor，那么">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/08/golang/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/09/synchronized/"/>
 
 
 
 
 
-  <title>Golang | CCdongyu</title>
+  <title>Synchronize In Java | CCdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/golang/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/synchronized/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Golang</h1>
+          <h1 class="post-title" itemprop="name headline">Synchronize In Java</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T22:09:08+08:00">
-                2018-05-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:20:18+08:00">
+                2018-07-09
               </time>
             
 
@@ -299,12 +299,17 @@
       
 
       
-        <img src="/2018/05/08/golang/golang.jepg">
-<a id="more"></a>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><h3 id="The-init-function"><a href="#The-init-function" class="headerlink" title="The init function"></a>The init function</h3><p>Finally, each source file can define its own niladic init function to set up whatever state is required. (Actually each file can have multiple init functions.) And finally means finally: init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p>
-<p>Besides initializations that cannot be expressed as declarations, a common use of init functions is to verify or repair correctness of the program state before real execution begins.</p>
-<img src="/2018/05/08/golang/init_golang.png">
-<h3 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h3><p><a href="https://hackthology.com/object-oriented-inheritance-in-go.html" target="_blank" rel="noopener">Object Oriented Inheritance in Go </a></p>
+        <h2 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h2><p>Monitor是Java中多线程同步的重要概念，是synchronized关键字实现的重要基础。</p>
+<p>Monitor和操作系统中的Binary Semaphore（也就是Mutex）类似，线程在访问共享资源的时候，首先要获取Monitor，然后才能对共享资源进行操作。</p>
+<p>在Java中，每个对象都和特定的Monitor关联（包括Class对象）。如果一个线程拥有某个对象的Monitor，那么在这个线程释放这个对象的Monitor之前，其他线程都无权访问这个这个对象的同步方法（这里的表述不是很严谨）。</p>
+<p>一旦某段代码被synchronized关键字修饰，JVM就会在后台自动实现Monitor。</p>
+<h2 id="synchronized用法"><a href="#synchronized用法" class="headerlink" title="synchronized用法"></a>synchronized用法</h2><h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>在需要同步的方法名前加上synchronized修饰符。在这样的情况下，同步方法在执行前会去获取当前方法所属对象的monitor，获取到后才能执行同步方法。如果monitor已被其他线程获取，则当前线程阻塞等待。在多线程的情景下，只有当monitor被释放，其他线程才能执行同步方法。</p>
+<p>同步方法获取的monitor是当前对象的monitor。这也就意味着如果一个对象有多个同步方法时，一旦一个同步方法获取了monitor，该对象的其他同步方法均被阻塞。</p>
+<p>同步方法只能和同步方法相同步，不会阻塞非同步方法。</p>
+<h3 id="同步静态方法"><a href="#同步静态方法" class="headerlink" title="同步静态方法"></a>同步静态方法</h3><p>同步静态方法和同步方法原理类似，不同的是monitor所属的对象不同。可以知道的是，静态方法属于类，也就是说synchronized修饰的静态方法获取的是类的monitor，也就是Class对象的monitor。而同步方法获取的是当前实例的monitor。</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>代码块很容易理解。其实就是将对象当作锁来使用。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>synchronized的使用方式也就两类：修饰方法，修饰对象。而synchronized的本质就是去获取对象的monitor（在JVM中类本身对应一个Class对象）。只要清楚理解synchronized操作的对象是谁，就能理解synchronized关键字是如何同步的了。</p>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html" target="_blank" rel="noopener">volatile关键字解析</a></p>
 
       
     </div>
@@ -329,8 +334,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/docker/" rel="next" title="Docker">
-                <i class="fa fa-chevron-left"></i> Docker
+              <a href="/2018/06/02/devops/" rel="next" title="devops">
+                <i class="fa fa-chevron-left"></i> devops
               </a>
             
           </div>
@@ -339,8 +344,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/08/hexo/" rel="prev" title="hexo">
-                hexo <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/20/java/" rel="prev" title="Java随笔">
+                Java随笔 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -464,7 +469,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-init-function"><span class="nav-number">1.1.</span> <span class="nav-text">The init function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">1.2.</span> <span class="nav-text">Inheritance</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monitor"><span class="nav-number">1.</span> <span class="nav-text">Monitor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized用法"><span class="nav-number">2.</span> <span class="nav-text">synchronized用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步方法"><span class="nav-number">2.1.</span> <span class="nav-text">同步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步静态方法"><span class="nav-number">2.2.</span> <span class="nav-text">同步静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">2.3.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">3.</span> <span class="nav-text">volatile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">3.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
