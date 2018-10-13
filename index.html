@@ -369,7 +369,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/20/java/" itemprop="url">Java随笔</a></h1>
+                <a class="post-title-link" href="/2018/07/20/java/" itemprop="url">Java</a></h1>
         
 
         <div class="post-meta">
@@ -428,136 +428,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/synchronized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ccdongyu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CCdongyu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/09/synchronized/" itemprop="url">Synchronize In Java</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:20:18+08:00">
-                2018-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h2><p>Monitor是Java中多线程同步的重要概念，是synchronized关键字实现的重要基础。</p>
-<p>Monitor和操作系统中的Binary Semaphore（也就是Mutex）类似，线程在访问共享资源的时候，首先要获取Monitor，然后才能对共享资源进行操作。</p>
-<p>在Java中，每个对象都和特定的Monitor关联（包括Class对象）。如果一个线程拥有某个对象的Monitor，那么在这个线程释放这个对象的Monitor之前，其他线程都无权访问这个这个对象的同步方法（这里的表述不是很严谨）。</p>
-<p>一旦某段代码被synchronized关键字修饰，JVM就会在后台自动实现Monitor。</p>
-<h2 id="synchronized用法"><a href="#synchronized用法" class="headerlink" title="synchronized用法"></a>synchronized用法</h2><h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>在需要同步的方法名前加上synchronized修饰符。在这样的情况下，同步方法在执行前会去获取当前方法所属对象的monitor，获取到后才能执行同步方法。如果monitor已被其他线程获取，则当前线程阻塞等待。在多线程的情景下，只有当monitor被释放，其他线程才能执行同步方法。</p>
-<p>同步方法获取的monitor是当前对象的monitor。这也就意味着如果一个对象有多个同步方法时，一旦一个同步方法获取了monitor，该对象的其他同步方法均被阻塞。</p>
-<p>同步方法只能和同步方法相同步，不会阻塞非同步方法。</p>
-<h3 id="同步静态方法"><a href="#同步静态方法" class="headerlink" title="同步静态方法"></a>同步静态方法</h3><p>同步静态方法和同步方法原理类似，不同的是monitor所属的对象不同。可以知道的是，静态方法属于类，也就是说synchronized修饰的静态方法获取的是类的monitor，也就是Class对象的monitor。而同步方法获取的是当前实例的monitor。</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>代码块很容易理解。其实就是将对象当作锁来使用。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>synchronized的使用方式也就两类：修饰方法，修饰对象。而synchronized的本质就是去获取对象的monitor（在JVM中类本身对应一个Class对象）。只要清楚理解synchronized操作的对象是谁，就能理解synchronized关键字是如何同步的了。</p>
-<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html" target="_blank" rel="noopener">volatile关键字解析</a></p>
-
-          
         
       
     </div>
@@ -1462,6 +1332,127 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ccdongyu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CCdongyu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/08/hexo/" itemprop="url">hexo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T22:30:27+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="noopener">asset folder</a></p>
+<p>the image size on the web dependes on its real size rather than is format.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1512,7 +1503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
