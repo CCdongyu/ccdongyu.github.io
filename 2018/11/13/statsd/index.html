@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Reference," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="keywords" content="Reference">
+<meta name="description" content="An Introduction to Tracking Statistics with Graphite, StatsD, and CollectD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker">
-<meta property="og:url" content="http://yoursite.com/2018/05/01/docker/index.html">
+<meta property="og:title" content="statsd">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/statsd/index.html">
 <meta property="og:site_name" content="CCdongyu">
+<meta property="og:description" content="An Introduction to Tracking Statistics with Graphite, StatsD, and CollectD">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/05/01/docker/docker.png">
-<meta property="og:updated_time" content="2018-10-01T03:02:31.521Z">
+<meta property="og:updated_time" content="2018-11-13T02:23:31.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/01/docker/docker.png">
+<meta name="twitter:title" content="statsd">
+<meta name="twitter:description" content="An Introduction to Tracking Statistics with Graphite, StatsD, and CollectD">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/01/docker/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/13/statsd/"/>
 
 
 
 
 
-  <title>Docker | CCdongyu</title>
+  <title>statsd | CCdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/docker/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/statsd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker</h1>
+          <h1 class="post-title" itemprop="name headline">statsd</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T12:49:44+08:00">
-                2018-05-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-13T10:22:50+08:00">
+                2018-11-13
               </time>
             
 
@@ -299,21 +299,7 @@
       
 
       
-        <img src="/2018/05/01/docker/docker.png">
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上。</p>
-<p><a href="http://dockone.io/article/1522" target="_blank" rel="noopener">容器简史</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="docker-ce"><a href="#docker-ce" class="headerlink" title="docker-ce"></a>docker-ce</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: install the necessary tools.</span></span><br><span class="line">sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"><span class="comment"># step 2: install the gpg cetificate</span></span><br><span class="line">curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="comment"># step 3:</span></span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="variable">$(lsb_release -cs)</span> stable"</span></span><br><span class="line"><span class="comment"># step 4:</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># options:</span></span><br><span class="line">apt-cache madison docker-ce</span><br></pre></td></tr></table></figure>
-<p><strong>Tips: Docker-ce for bonic(18.04) is not available. Install docker.io instead. The version of docker.io is 17.</strong></p>
-<h3 id="docker-machine"><a href="#docker-machine" class="headerlink" title="docker-machine"></a>docker-machine</h3><p><a href="https://mirrors.aliyun.com/docker-toolbox/linux/machine/" target="_blank" rel="noopener">docker-machine</a></p>
-<p>This is a binary file. Install it to the Path.</p>
-<p>For example </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo install &lt;download_file&gt; /usr/<span class="built_in">local</span>/bin/</span><br></pre></td></tr></table></figure>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>sudo docker login</p>
-<p>sudo docker container COMMAND(ls rm)</p>
-<p>sudo docker image COMMAND(ls rm pull push)</p>
-<p>sudo docker swarm COMMAND(init join join-token leave)<br>This command is to manage the cluster.</p>
-<p>docker-machine COMMAND(create ls rm ssh)<br>create: create a virtual machine with boot2docker image and install the docker on the machine.</p>
+        <p><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd" target="_blank" rel="noopener">An Introduction to Tracking Statistics with Graphite, StatsD, and CollectD</a></p>
 
       
     </div>
@@ -329,12 +315,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Reference/" rel="tag"># Reference</a>
-          
-        </div>
-      
 
       
       
@@ -344,15 +324,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/26/maven/" rel="next" title="Maven">
+                <i class="fa fa-chevron-left"></i> Maven
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/08/golang/" rel="prev" title="Golang">
-                Golang <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,17 +384,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -465,22 +436,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-ce"><span class="nav-number">2.1.</span> <span class="nav-text">docker-ce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-machine"><span class="nav-number">2.2.</span> <span class="nav-text">docker-machine</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
