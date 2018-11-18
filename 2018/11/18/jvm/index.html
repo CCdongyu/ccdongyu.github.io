@@ -79,17 +79,17 @@
 
 
 
+<meta name="description" content="序《深入理解Java虚拟机（第2版）》笔记。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/golang/index.html">
+<meta property="og:title" content="Java Virtual Machine">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/jvm/index.html">
 <meta property="og:site_name" content="CCdongyu">
+<meta property="og:description" content="序《深入理解Java虚拟机（第2版）》笔记。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
-<meta property="og:image" content="http://yoursite.com/2018/05/08/golang/init_golang.png">
-<meta property="og:updated_time" content="2018-05-08T15:38:42.240Z">
+<meta property="og:updated_time" content="2018-11-18T08:26:05.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/08/golang/golang.jepg">
+<meta name="twitter:title" content="Java Virtual Machine">
+<meta name="twitter:description" content="序《深入理解Java虚拟机（第2版）》笔记。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/08/golang/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/18/jvm/"/>
 
 
 
 
 
-  <title>Golang | CCdongyu</title>
+  <title>Java Virtual Machine | CCdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/golang/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/jvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Golang</h1>
+          <h1 class="post-title" itemprop="name headline">Java Virtual Machine</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T22:09:08+08:00">
-                2018-05-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T15:35:12+08:00">
+                2018-11-18
               </time>
             
 
@@ -299,13 +299,17 @@
       
 
       
-        <img src="/2018/05/08/golang/golang.jepg">
+        <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>《深入理解Java虚拟机（第2版）》笔记。</p>
 <a id="more"></a>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><h3 id="The-init-function"><a href="#The-init-function" class="headerlink" title="The init function"></a>The init function</h3><p>Finally, each source file can define its own niladic init function to set up whatever state is required. (Actually each file can have multiple init functions.) And finally means finally: init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p>
-<p>Besides initializations that cannot be expressed as declarations, a common use of init functions is to verify or repair correctness of the program state before real execution begins.</p>
-<img src="/2018/05/08/golang/init_golang.png">
-<h3 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h3><p><a href="https://hackthology.com/object-oriented-inheritance-in-go.html" target="_blank" rel="noopener">Object Oriented Inheritance in Go </a></p>
-
+<h2 id="GC-Gargage-Collection"><a href="#GC-Gargage-Collection" class="headerlink" title="GC(Gargage Collection)"></a>GC(Gargage Collection)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="GC的意义"><a href="#GC的意义" class="headerlink" title="GC的意义"></a>GC的意义</h4><p>当GC成为系统达到更高并发量瓶颈的时候，我们需要对这部分“自动化”的技术做一些必要的监控和调节。</p>
+<h4 id="GC主要回收目标？"><a href="#GC主要回收目标？" class="headerlink" title="GC主要回收目标？"></a>GC主要回收目标？</h4><p>堆和方法区中的对象。程序计数器、虚拟机栈和本地方法栈的内存分配和回收是编译期可知的，一般在方法或者线程结束的时候内存就自然回收了。而堆和方法区的内存分配和回收是在运行时才能知道的，是动态的，GC主要关注的就是这部分内存。</p>
+<h3 id="什么时候回收？（对象已死吗？）"><a href="#什么时候回收？（对象已死吗？）" class="headerlink" title="什么时候回收？（对象已死吗？）"></a>什么时候回收？（对象已死吗？）</h3><p>GC的第一步就是确定堆和方法区上的哪些对象已死（不能再通过任何途径使用）。<br>一般而言有两种方法：引用计数器法和可达性分析法。</p>
+<h4 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h4><p>定义：给对象添加一个引用计数器，每当有一个地方引用这个对象时，计数器加1；当引用失效时，计数器减1。任何时刻计数器为0就表明对象不能通过任何途径使用。<br>优势：实现简单，判定效率高。Python就是基于这样的方式进行内存管理。<br>劣势：无法避免循环引用的问题。（已死对象相互引用。）</p>
+<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>定义：于图论阐述：将一系列被称为“GC Roots”的对象作为起点，按照引用关系向下搜索。如果有对象不可达，则称这个对象是不可用的。<br>优势：能够解决循环引用问题。<br>GC Roots包括以下几种：<br>虚拟机栈（本地变量表）中引用的对象。<br>方法区中静态属性引用的对象。<br>方法区中常量引用的对象。<br>本地方法栈中JNI引用的对象。</p>
+<h4 id="关于引用"><a href="#关于引用" class="headerlink" title="关于引用"></a>关于引用</h4><p>JDK1.2之前，reference（引用）类型中存储着另一块内存的地址，就称这块内存被引用。JDK1.2之后对reference（引用）概念进行了扩充，分为强引用、软引用、弱引用和虚引用四种。<br>强引用：Java中普遍存在的，以“=”表示的引用关系。<br>软引用：描述有用但非必要的对象。在系统即将发生内存溢出异常之前，会回收这部分对象。回收之后内存还不够，再抛出内存溢出异常。用SoftReference类来实现软引用。<br>弱引用：描述非必须对象。被弱引用关联的对象只能存活到下次GC之前。用WeekReference类来实现弱引用。ThreadLocal基于弱引用实现。<br>虚引用：唯一目的就是在回收时收到系统通知，无法通过虚引用获取对象。</p>
+<h4 id="缓刑"><a href="#缓刑" class="headerlink" title="缓刑"></a>缓刑</h4><p>对象被判定为死亡需要经历两次标记过程。第一次标记所有不可达的对象，并会筛选出覆盖了finalize()方法且没有被执行过的对象，将这这些对象放置在F-Queue队列中，然后由一个低优先级的Finalizer对象去执行，但并不保证一定执行。稍后GC会进行二次标记，经过二次标记的对象最终被判定为不可用。</p>
+<h4 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h4><p>Java虚拟机规范中提到：可以不要求虚拟机在方法区实现垃圾回收。<br>永久代的垃圾回收分为两个部分：废弃常量和无用的类。<br>判定一个类无用需要满足以下几个条件：<br>Java堆中不存在任何该类的实例。<br>加载该类的ClassLoader已经被回收。<br>该类对应的java.lang.Class对象没有在任何地方被引用，无法通过反射访问到。</p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除"><a href="#标记-清除" class="headerlink" title="标记-清除"></a>标记-清除</h4><h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4>
       
     </div>
     
@@ -329,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/docker/" rel="next" title="Docker">
-                <i class="fa fa-chevron-left"></i> Docker
+              <a href="/2018/11/13/statsd/" rel="next" title="statsd">
+                <i class="fa fa-chevron-left"></i> statsd
               </a>
             
           </div>
@@ -338,10 +342,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/08/hexo/" rel="prev" title="hexo">
-                hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,7 +464,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-init-function"><span class="nav-number">1.1.</span> <span class="nav-text">The init function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">1.2.</span> <span class="nav-text">Inheritance</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC-Gargage-Collection"><span class="nav-number">2.</span> <span class="nav-text">GC(Gargage Collection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GC的意义"><span class="nav-number">2.1.1.</span> <span class="nav-text">GC的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GC主要回收目标？"><span class="nav-number">2.1.2.</span> <span class="nav-text">GC主要回收目标？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候回收？（对象已死吗？）"><span class="nav-number">2.2.</span> <span class="nav-text">什么时候回收？（对象已死吗？）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用计数算法"><span class="nav-number">2.2.1.</span> <span class="nav-text">引用计数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可达性分析算法"><span class="nav-number">2.2.2.</span> <span class="nav-text">可达性分析算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于引用"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓刑"><span class="nav-number">2.2.4.</span> <span class="nav-text">缓刑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回收方法区"><span class="nav-number">2.2.5.</span> <span class="nav-text">回收方法区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">2.3.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-清除"><span class="nav-number">2.3.1.</span> <span class="nav-text">标记-清除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制算法"><span class="nav-number">2.3.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">2.3.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分代收集算法"><span class="nav-number">2.3.4.</span> <span class="nav-text">分代收集算法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
