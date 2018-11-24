@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="参考书目《Thinking  in Java》《Effective Java》《深入理解java虚拟机》深入浅出 Java8 Lambda 表达式Spring5 源码分析Aspect Oriented Programming with SpringJava Proxy 和 CGLIB 动态代理原理Spring源码分析：AOP源码解析（上篇）Spring源码分析：AOP源码解析（下篇）Spring">
+<meta name="description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java">
 <meta property="og:url" content="http://yoursite.com/2018/07/20/java/index.html">
 <meta property="og:site_name" content="ccdongyu">
-<meta property="og:description" content="参考书目《Thinking  in Java》《Effective Java》《深入理解java虚拟机》深入浅出 Java8 Lambda 表达式Spring5 源码分析Aspect Oriented Programming with SpringJava Proxy 和 CGLIB 动态代理原理Spring源码分析：AOP源码解析（上篇）Spring源码分析：AOP源码解析（下篇）Spring">
+<meta property="og:description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-08T07:50:55.501Z">
+<meta property="og:updated_time" content="2018-11-23T06:54:29.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java">
-<meta name="twitter:description" content="参考书目《Thinking  in Java》《Effective Java》《深入理解java虚拟机》深入浅出 Java8 Lambda 表达式Spring5 源码分析Aspect Oriented Programming with SpringJava Proxy 和 CGLIB 动态代理原理Spring源码分析：AOP源码解析（上篇）Spring源码分析：AOP源码解析（下篇）Spring">
+<meta name="twitter:description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
 
 
 
@@ -299,7 +299,22 @@
       
 
       
-        <h2 id="参考书目"><a href="#参考书目" class="headerlink" title="参考书目"></a>参考书目</h2><p>《Thinking  in Java》<br>《Effective Java》<br>《深入理解java虚拟机》<br><a href="http://blog.oneapm.com/apm-tech/226.html" target="_blank" rel="noopener">深入浅出 Java8 Lambda 表达式</a><br><a href="https://blog.csdn.net/lj1314ailj" target="_blank" rel="noopener">Spring5 源码分析</a><br><a href="https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/aop.html" target="_blank" rel="noopener">Aspect Oriented Programming with Spring</a><br><a href="http://www.importnew.com/27772.html" target="_blank" rel="noopener">Java Proxy 和 CGLIB 动态代理原理</a><br><a href="http://www.cnblogs.com/xrq730/p/6753160.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（上篇）</a><br><a href="http://www.cnblogs.com/xrq730/p/6757608.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（下篇）</a><br><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html" target="_blank" rel="noopener">Spring Framework Documentation</a></p>
+        <p><em>Effective java 3rd Edition</em>笔记</p>
+<h2 id="Item-1-Consider-static-factory-method-instead-of-constructor"><a href="#Item-1-Consider-static-factory-method-instead-of-constructor" class="headerlink" title="Item 1: Consider static factory method instead of constructor"></a>Item 1: Consider static factory method instead of constructor</h2><h3 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h3><p>One advantage of static factory methods is that, unlike constructors, they have names.<br>For example, BigInteger(int, int, Random), may return a prime. BigInteger.probablePrime(int, Random) is a better expression. It is easier to read.</p>
+<p>A second advantage of static factory methods is that, unlike constructors, they are not required to create a new object each time they’re invoked.<br>For example, Boolean.valueOf(boolean), never creates an object.</p>
+<p>A third advantage of static factory methods is that, unlike constructors, they can return an object of any subtype of their return type.</p>
+<h2 id="Item-18-Favor-composition-over-inheritance"><a href="#Item-18-Favor-composition-over-inheritance" class="headerlink" title="Item 18: Favor composition over inheritance"></a>Item 18: Favor composition over inheritance</h2><p>Unlike method invocation, inheritance violates encapsulation.<br>It is a better way to use the design pattern called Decorator pattern.</p>
+<h2 id="Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it"><a href="#Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 19: Design and Document for inheritance or else prohibit it."></a>Item 19: Design and Document for inheritance or else prohibit it.</h2><p>The class must document its self-use of overridable methods.<br>The only way to test a class designed for inheritance is to write subclasses.<br>Constructor must not invoke overridable methods.<br>The best solution to this problem i sto prohibit subclassing in classes thatare not designed and documented to be safely subclasses.</p>
+<h2 id="Item-20-Prefer-interfaces-to-abstract-classes"><a href="#Item-20-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 20: Prefer interfaces to abstract classes"></a>Item 20: Prefer interfaces to abstract classes</h2><p>Existion classes can easily be retrofitted to implement a new interface.</p>
+<p>Interfaces are ideal for defining mixins.</p>
+<p>Interfaces allow for the construction of nonhierarchical type frameworks.</p>
+<h2 id="Item-23-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-23-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 23: Prefer class hierarchies to tagged classes."></a>Item 23: Prefer class hierarchies to tagged classes.</h2><p>Tagged class refers to the class that contains a tag field indication the flavor of the instance.<br>Tagged classes are verbose, error-prone, and inefficient, just a pallid imitation of a class hierarchy.</p>
+<h2 id="Item-24-Favor-static-member-classes-over-nonstatic"><a href="#Item-24-Favor-static-member-classes-over-nonstatic" class="headerlink" title="Item 24: Favor static member classes over nonstatic"></a>Item 24: Favor static member classes over nonstatic</h2><p>There are four kinds of nested classes: static member classes, nonstatic member classes, anonymous classes, and local classes.</p>
+<h2 id="Item-50-Make-defensive-copies-when-needed"><a href="#Item-50-Make-defensive-copies-when-needed" class="headerlink" title="Item 50: Make defensive copies when needed."></a>Item 50: Make defensive copies when needed.</h2><p>It is essential to make a defensive copy of each mutable parameter to the constructor.</p>
+<p>Defensive copies are made before checking the validity of parameters, and the validity ckeck is performed on the copies rather than on the originals.</p>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>在JDK1.8中，HashMap有两个新的优化：引入红黑树，resize()方法。<br>当一个链表长度大于8时，将链表转化为红黑树。<br>resize()方法重写。</p>
+<h2 id="参考书目"><a href="#参考书目" class="headerlink" title="参考书目"></a>参考书目</h2><p>《Thinking  in Java》<br>《Effective Java》<br>《深入理解java虚拟机》<br><a href="http://blog.oneapm.com/apm-tech/226.html" target="_blank" rel="noopener">深入浅出 Java8 Lambda 表达式</a><br><a href="https://blog.csdn.net/lj1314ailj" target="_blank" rel="noopener">Spring5 源码分析</a><br><a href="https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/aop.html" target="_blank" rel="noopener">Aspect Oriented Programming with Spring</a><br><a href="http://www.importnew.com/27772.html" target="_blank" rel="noopener">Java Proxy 和 CGLIB 动态代理原理</a><br><a href="http://www.cnblogs.com/xrq730/p/6753160.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（上篇）</a><br><a href="http://www.cnblogs.com/xrq730/p/6757608.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（下篇）</a><br><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html" target="_blank" rel="noopener">Spring Framework Documentation</a></p>
+<p><a href="https://stackoverflow.com/questions/31754786/how-to-implement-the-builder-pattern-in-java-8" target="_blank" rel="noopener">Builder</a></p>
 
       
     </div>
@@ -413,7 +428,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -459,7 +474,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书目"><span class="nav-number">1.</span> <span class="nav-text">参考书目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-1-Consider-static-factory-method-instead-of-constructor"><span class="nav-number">1.</span> <span class="nav-text">Item 1: Consider static factory method instead of constructor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage"><span class="nav-number">1.1.</span> <span class="nav-text">Advantage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-18-Favor-composition-over-inheritance"><span class="nav-number">2.</span> <span class="nav-text">Item 18: Favor composition over inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it"><span class="nav-number">3.</span> <span class="nav-text">Item 19: Design and Document for inheritance or else prohibit it.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-20-Prefer-interfaces-to-abstract-classes"><span class="nav-number">4.</span> <span class="nav-text">Item 20: Prefer interfaces to abstract classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-23-Prefer-class-hierarchies-to-tagged-classes"><span class="nav-number">5.</span> <span class="nav-text">Item 23: Prefer class hierarchies to tagged classes.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-24-Favor-static-member-classes-over-nonstatic"><span class="nav-number">6.</span> <span class="nav-text">Item 24: Favor static member classes over nonstatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-50-Make-defensive-copies-when-needed"><span class="nav-number">7.</span> <span class="nav-text">Item 50: Make defensive copies when needed.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">8.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书目"><span class="nav-number">9.</span> <span class="nav-text">参考书目</span></a></li></ol></div>
             
 
           </div>

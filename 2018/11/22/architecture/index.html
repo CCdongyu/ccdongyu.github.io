@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Noteasset folder the image size on the web dependes on its real size rather than is format.">
+<meta name="description" content="架构目的：架构设计的主要目的是为了解决软件系统复杂度带来的问题。架构原则：分而治之、关注点分离。计算密集型、存储密集型。IO：增加缓存数据库:读写分离，数据不一致。高并发：负载均衡（集群化），应用无状态。高响应：最好能异步处理。存储集群化：入口可能成为新瓶颈。应用集群化：需求变更快导致发布代价高，应用拆分为多个服务，通过消息中间件保证服务之间的通讯。 架构模式：分层、分割、分布式、集群、缓存、异步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/hexo/index.html">
+<meta property="og:title" content="Software Architecture">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/architecture/index.html">
 <meta property="og:site_name" content="ccdongyu">
-<meta property="og:description" content="Noteasset folder the image size on the web dependes on its real size rather than is format.">
+<meta property="og:description" content="架构目的：架构设计的主要目的是为了解决软件系统复杂度带来的问题。架构原则：分而治之、关注点分离。计算密集型、存储密集型。IO：增加缓存数据库:读写分离，数据不一致。高并发：负载均衡（集群化），应用无状态。高响应：最好能异步处理。存储集群化：入口可能成为新瓶颈。应用集群化：需求变更快导致发布代价高，应用拆分为多个服务，通过消息中间件保证服务之间的通讯。 架构模式：分层、分割、分布式、集群、缓存、异步">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-08T15:39:47.282Z">
+<meta property="og:updated_time" content="2018-11-22T06:50:47.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo">
-<meta name="twitter:description" content="Noteasset folder the image size on the web dependes on its real size rather than is format.">
+<meta name="twitter:title" content="Software Architecture">
+<meta name="twitter:description" content="架构目的：架构设计的主要目的是为了解决软件系统复杂度带来的问题。架构原则：分而治之、关注点分离。计算密集型、存储密集型。IO：增加缓存数据库:读写分离，数据不一致。高并发：负载均衡（集群化），应用无状态。高响应：最好能异步处理。存储集群化：入口可能成为新瓶颈。应用集群化：需求变更快导致发布代价高，应用拆分为多个服务，通过消息中间件保证服务之间的通讯。 架构模式：分层、分割、分布式、集群、缓存、异步">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/08/hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/22/architecture/"/>
 
 
 
 
 
-  <title>hexo | ccdongyu</title>
+  <title>Software Architecture | ccdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/architecture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo</h1>
+          <h1 class="post-title" itemprop="name headline">Software Architecture</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T22:30:27+08:00">
-                2018-05-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T13:42:51+08:00">
+                2018-11-22
               </time>
             
 
@@ -299,8 +299,8 @@
       
 
       
-        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="noopener">asset folder</a></p>
-<p>the image size on the web dependes on its real size rather than is format.</p>
+        <p>架构目的：架构设计的主要目的是为了解决软件系统复杂度带来的问题。<br>架构原则：分而治之、关注点分离。<br>计算密集型、存储密集型。<br>IO：增加缓存<br>数据库:读写分离，数据不一致。<br>高并发：负载均衡（集群化），应用无状态。<br>高响应：最好能异步处理。<br>存储集群化：入口可能成为新瓶颈。<br>应用集群化：需求变更快导致发布代价高，应用拆分为多个服务，通过消息中间件保证服务之间的通讯。</p>
+<p>架构模式：分层、分割、分布式、集群、缓存、异步、冗余、自动化、安全。<br>关注点：性能，可用性，伸缩性，扩展性、安全<br>性能：分布式缓存、异步操作、使用集群、代码优化（忽略）和存储性能优化。<br>高可用指标。<br>可伸缩：一致性hash算法保证数据的一致性<br>可扩展性：拆分应用为不同服务。要注重版本问题。<br>安全：认证、授权、加密。<br>:</p>
 
       
     </div>
@@ -325,8 +325,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/08/golang/" rel="next" title="Golang">
-                <i class="fa fa-chevron-left"></i> Golang
+              <a href="/2018/11/19/jni/" rel="next" title="Java Native Interface">
+                <i class="fa fa-chevron-left"></i> Java Native Interface
               </a>
             
           </div>
@@ -334,10 +334,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/09/supervisord/" rel="prev" title="Supervisord">
-                Supervisord <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -389,17 +385,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -450,22 +437,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
