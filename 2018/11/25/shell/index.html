@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
+<meta name="description" content="if elseif1234567if conditionthen    command1     command2    ...    commandN fi if else123456789if conditionthen    command1     command2    ...    commandNelse    commandfi if else-if else123456789if">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java">
-<meta property="og:url" content="http://yoursite.com/2018/07/20/java/index.html">
+<meta property="og:title" content="Shell">
+<meta property="og:url" content="http://yoursite.com/2018/11/25/shell/index.html">
 <meta property="og:site_name" content="ccdongyu">
-<meta property="og:description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
+<meta property="og:description" content="if elseif1234567if conditionthen    command1     command2    ...    commandN fi if else123456789if conditionthen    command1     command2    ...    commandNelse    commandfi if else-if else123456789if">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-23T06:54:29.313Z">
+<meta property="og:updated_time" content="2018-11-25T03:31:56.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java">
-<meta name="twitter:description" content="Effective java 3rd Edition笔记 Item 1: Consider static factory method instead of constructorAdvantageOne advantage of static factory methods is that, unlike constructors, they have names.For example, Bi">
+<meta name="twitter:title" content="Shell">
+<meta name="twitter:description" content="if elseif1234567if conditionthen    command1     command2    ...    commandN fi if else123456789if conditionthen    command1     command2    ...    commandNelse    commandfi if else-if else123456789if">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/20/java/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/25/shell/"/>
 
 
 
 
 
-  <title>Java | ccdongyu</title>
+  <title>Shell | ccdongyu</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccdongyu">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java</h1>
+          <h1 class="post-title" itemprop="name headline">Shell</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T10:30:11+08:00">
-                2018-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-25T10:21:56+08:00">
+                2018-11-25
               </time>
             
 
@@ -299,22 +299,13 @@
       
 
       
-        <p><em>Effective java 3rd Edition</em>笔记</p>
-<h2 id="Item-1-Consider-static-factory-method-instead-of-constructor"><a href="#Item-1-Consider-static-factory-method-instead-of-constructor" class="headerlink" title="Item 1: Consider static factory method instead of constructor"></a>Item 1: Consider static factory method instead of constructor</h2><h3 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h3><p>One advantage of static factory methods is that, unlike constructors, they have names.<br>For example, BigInteger(int, int, Random), may return a prime. BigInteger.probablePrime(int, Random) is a better expression. It is easier to read.</p>
-<p>A second advantage of static factory methods is that, unlike constructors, they are not required to create a new object each time they’re invoked.<br>For example, Boolean.valueOf(boolean), never creates an object.</p>
-<p>A third advantage of static factory methods is that, unlike constructors, they can return an object of any subtype of their return type.</p>
-<h2 id="Item-18-Favor-composition-over-inheritance"><a href="#Item-18-Favor-composition-over-inheritance" class="headerlink" title="Item 18: Favor composition over inheritance"></a>Item 18: Favor composition over inheritance</h2><p>Unlike method invocation, inheritance violates encapsulation.<br>It is a better way to use the design pattern called Decorator pattern.</p>
-<h2 id="Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it"><a href="#Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 19: Design and Document for inheritance or else prohibit it."></a>Item 19: Design and Document for inheritance or else prohibit it.</h2><p>The class must document its self-use of overridable methods.<br>The only way to test a class designed for inheritance is to write subclasses.<br>Constructor must not invoke overridable methods.<br>The best solution to this problem i sto prohibit subclassing in classes thatare not designed and documented to be safely subclasses.</p>
-<h2 id="Item-20-Prefer-interfaces-to-abstract-classes"><a href="#Item-20-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 20: Prefer interfaces to abstract classes"></a>Item 20: Prefer interfaces to abstract classes</h2><p>Existion classes can easily be retrofitted to implement a new interface.</p>
-<p>Interfaces are ideal for defining mixins.</p>
-<p>Interfaces allow for the construction of nonhierarchical type frameworks.</p>
-<h2 id="Item-23-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-23-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 23: Prefer class hierarchies to tagged classes."></a>Item 23: Prefer class hierarchies to tagged classes.</h2><p>Tagged class refers to the class that contains a tag field indication the flavor of the instance.<br>Tagged classes are verbose, error-prone, and inefficient, just a pallid imitation of a class hierarchy.</p>
-<h2 id="Item-24-Favor-static-member-classes-over-nonstatic"><a href="#Item-24-Favor-static-member-classes-over-nonstatic" class="headerlink" title="Item 24: Favor static member classes over nonstatic"></a>Item 24: Favor static member classes over nonstatic</h2><p>There are four kinds of nested classes: static member classes, nonstatic member classes, anonymous classes, and local classes.</p>
-<h2 id="Item-50-Make-defensive-copies-when-needed"><a href="#Item-50-Make-defensive-copies-when-needed" class="headerlink" title="Item 50: Make defensive copies when needed."></a>Item 50: Make defensive copies when needed.</h2><p>It is essential to make a defensive copy of each mutable parameter to the constructor.</p>
-<p>Defensive copies are made before checking the validity of parameters, and the validity ckeck is performed on the copies rather than on the originals.</p>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>在JDK1.8中，HashMap有两个新的优化：引入红黑树，resize()方法。<br>当一个链表长度大于8时，将链表转化为红黑树。<br>resize()方法重写。</p>
-<h2 id="参考书目"><a href="#参考书目" class="headerlink" title="参考书目"></a>参考书目</h2><p>《Thinking  in Java》<br>《Effective Java》<br>《深入理解java虚拟机》<br><a href="http://blog.oneapm.com/apm-tech/226.html" target="_blank" rel="noopener">深入浅出 Java8 Lambda 表达式</a><br><a href="https://blog.csdn.net/lj1314ailj" target="_blank" rel="noopener">Spring5 源码分析</a><br><a href="https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/aop.html" target="_blank" rel="noopener">Aspect Oriented Programming with Spring</a><br><a href="http://www.importnew.com/27772.html" target="_blank" rel="noopener">Java Proxy 和 CGLIB 动态代理原理</a><br><a href="http://www.cnblogs.com/xrq730/p/6753160.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（上篇）</a><br><a href="http://www.cnblogs.com/xrq730/p/6757608.html" target="_blank" rel="noopener">Spring源码分析：AOP源码解析（下篇）</a><br><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html" target="_blank" rel="noopener">Spring Framework Documentation</a></p>
-<p><a href="https://stackoverflow.com/questions/31754786/how-to-implement-the-builder-pattern-in-java-8" target="_blank" rel="noopener">Builder</a></p>
+        <h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command1 </span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h4 id="if-else-1"><a href="#if-else-1" class="headerlink" title="if else"></a>if else</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command1 </span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">command</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h4 id="if-else-if-else"><a href="#if-else-if-else" class="headerlink" title="if else-if else"></a>if else-if else</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition1</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command1</span><br><span class="line"><span class="keyword">elif</span> condition2 </span><br><span class="line"><span class="keyword">then</span> </span><br><span class="line">    command2</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    commandN</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> item1 item2 ... itemN</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">command</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="array"><a href="#array" class="headerlink" title="array"></a>array</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#there is no extra space near the equal sign.</span></span><br><span class="line"><span class="comment">#use the space to distingush the different elements.</span></span><br><span class="line">arr=(a b c 3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use the symbol like this to visit all the elements in the arr.</span></span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> <span class="variable">$&#123;arr[@]&#125;</span>;<span class="keyword">do</span></span><br><span class="line">    <span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#get the directory name of the param.</span></span><br><span class="line">$(dirname param)</span><br><span class="line"></span><br><span class="line"><span class="comment">#return the number of parameters.</span></span><br><span class="line"><span class="variable">$#</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#return the array of parameters.</span></span><br><span class="line"><span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#if condition</span></span><br><span class="line"><span class="keyword">if</span> [condition];<span class="keyword">then</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> array;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -339,8 +330,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/19/fonts-of-ubuntu/" rel="next" title="Fonts Of Ubuntu">
-                <i class="fa fa-chevron-left"></i> Fonts Of Ubuntu
+              <a href="/2018/11/24/kafka/" rel="next" title="kafka">
+                <i class="fa fa-chevron-left"></i> kafka
               </a>
             
           </div>
@@ -348,10 +339,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/13/blockchain/" rel="prev" title="Blockchain">
-                Blockchain <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,7 +461,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-1-Consider-static-factory-method-instead-of-constructor"><span class="nav-number">1.</span> <span class="nav-text">Item 1: Consider static factory method instead of constructor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage"><span class="nav-number">1.1.</span> <span class="nav-text">Advantage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-18-Favor-composition-over-inheritance"><span class="nav-number">2.</span> <span class="nav-text">Item 18: Favor composition over inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-19-Design-and-Document-for-inheritance-or-else-prohibit-it"><span class="nav-number">3.</span> <span class="nav-text">Item 19: Design and Document for inheritance or else prohibit it.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-20-Prefer-interfaces-to-abstract-classes"><span class="nav-number">4.</span> <span class="nav-text">Item 20: Prefer interfaces to abstract classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-23-Prefer-class-hierarchies-to-tagged-classes"><span class="nav-number">5.</span> <span class="nav-text">Item 23: Prefer class hierarchies to tagged classes.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-24-Favor-static-member-classes-over-nonstatic"><span class="nav-number">6.</span> <span class="nav-text">Item 24: Favor static member classes over nonstatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-50-Make-defensive-copies-when-needed"><span class="nav-number">7.</span> <span class="nav-text">Item 50: Make defensive copies when needed.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">8.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书目"><span class="nav-number">9.</span> <span class="nav-text">参考书目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else"><span class="nav-number">1.</span> <span class="nav-text">if else</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else-1"><span class="nav-number">1.2.</span> <span class="nav-text">if else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else-if-else"><span class="nav-number">1.3.</span> <span class="nav-text">if else-if else</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">2.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">3.</span> <span class="nav-text">while</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array"><span class="nav-number"></span> <span class="nav-text">array</span></a></div>
             
 
           </div>
