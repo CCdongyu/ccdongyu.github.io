@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="ccdongyu">
 <meta property="og:description" content="记录一些关于shell用法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-11T13:28:09.463Z">
+<meta property="og:updated_time" content="2018-12-12T01:11:12.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell">
 <meta name="twitter:description" content="记录一些关于shell用法">
@@ -314,6 +314,8 @@
 <li>数组也可以通过 arr[0]=value0 这样的方式定义。下标可以不连续，范围没有限制。</li>
 <li>获取数组元素的一般形式为 ${arra[idx]}。</li>
 <li>在下标位置使用@符号可以获取数组所有元素，如${arr[@]}。</li>
+<li>通过<code>$n</code>可以获取向脚本传递的参数，其中<code>n</code>表示第几个参数。</li>
+<li><code>$@</code>和<code>$*</code>都可以获取向脚本传递的所有参数，不同的是在传递多个参数时，<code>*</code>等价于传递了一个参数，而<code>$@</code>等价于传递了多个参数。</li>
 </ol>
 
       
