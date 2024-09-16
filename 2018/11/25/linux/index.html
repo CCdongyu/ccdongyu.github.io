@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录一些关于Linux/Ubuntu的常见问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux&#x2F;Ubuntu">
+<meta property="og:url" content="http://yoursite.com/2018/11/25/linux/index.html">
+<meta property="og:site_name" content="ccdongyu">
+<meta property="og:description" content="记录一些关于Linux/Ubuntu的常见问题。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-09T06:08:17.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux&#x2F;Ubuntu">
+<meta name="twitter:description" content="记录一些关于Linux/Ubuntu的常见问题。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/25/linux/"/>
+
+
+
+
+
+  <title>Linux/Ubuntu | ccdongyu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ccdongyu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ccdongyu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ccdongyu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux/Ubuntu</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-25T14:21:32+08:00">
+                2018-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/25/linux/" class="leancloud_visitors" data-flag-title="Linux/Ubuntu">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录一些关于Linux/Ubuntu的常见问题。</p>
+<a id="more"></a>
+<h2 id="后台运行的几种方式"><a href="#后台运行的几种方式" class="headerlink" title="后台运行的几种方式"></a>后台运行的几种方式</h2><p>操作系统为Ubuntu 18.04.<br>在执行所有操作前，执行<code>sudo su</code>.<br>以0.10.2版本的kafka为例进行说明。</p>
+<h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>在Linux中，如果要让进程在后台运行，一般情况下，只需要在命令后面加上<code>&amp;</code>即可。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br></pre></td></tr></table></figure>
+<p>这样操作的原理是将这个进程加入到一个作业队列里，通过<code>jobs</code>命令可以查看当前的作业队列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1]+  Running                 bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="ctrl-z-bg"><a href="#ctrl-z-bg" class="headerlink" title="ctrl+z bg"></a>ctrl+z bg</h3><p>对于已经在shell前台中执行的程序，可以通过ctrl+z暂停程序，然后通过bg命令将停止的作业放入后台执行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br><span class="line"><span class="comment">#ctrl+z</span></span><br></pre></td></tr></table></figure>
+<p>通过jobs命令可以看到,命令后面没有参数<code>&amp;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2]+  Stopped                 bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure>
+<p>然后执行bg命令，将进程放入后台执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其中%2是作业的编号</span></span><br><span class="line"><span class="built_in">bg</span> %2</span><br></pre></td></tr></table></figure>
+<p>再次通过jobs命令查看当前作业情况，可以发现命令后面多了个参数<code>&amp;</code>，表示当前作业在后台运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2]+  Stopped                 bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br></pre></td></tr></table></figure>
+<p>对于想要返回到前台的作业，可以通过指定作业编号的方式返回前台<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#%1为作业编号</span><br><span class="line">%1</span><br></pre></td></tr></table></figure></p>
+<h3 id="amp-和ctrl-z-bg的问题"><a href="#amp-和ctrl-z-bg的问题" class="headerlink" title="&amp;和ctrl+z bg的问题"></a>&amp;和ctrl+z bg的问题</h3><p>不管是通过<code>&amp;</code>还是<code>ctrl+z bg</code>让进程在后台运行，所有作业的父进程都是当前shell终端，一旦父进程退出，所有子进程会受到hangup信号然后退出。如果想让子进程在父进程推出后仍然能够运行，则需要通过其他方式来达成。</p>
+<h3 id="setsid"><a href="#setsid" class="headerlink" title="setsid"></a>setsid</h3><p>通过<code>man setsid</code>，可以看到这样的描述<code>runs a program in a new session</code>.<br>大致的意思就是在一个新的会话里运行一个程序。</p>
+<p>我们通过setsid命令运行进程<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setsid bin/zookeeper-server-start.sh config/zookeeper.properties</span><br><span class="line"><span class="comment">#或者( bin/zookeeper-server-start.sh config/zookeeper.properties  &amp;)//在一个子终端运行，最终挂在到systemd下</span></span><br></pre></td></tr></table></figure></p>
+<p>执行之后，进程自动在后台运行，通过jobs命令，发现当前shell下无作业，我们在通过<code>ps -ef |grep zoo</code>命令查找刚刚我们启动的进程,发现他被挂在到进程id为1671的父进程下执行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root     27857  1671  0 14:47 ?</span><br></pre></td></tr></table></figure>
+<p>再通过<code>ps -ef |grep 1671</code>，可以得知进程id为1671的进程为<code>lib/systemd/systemd --user</code>,并且还有很多的其他进程也作为这个进程的子进程在运行着。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tangdon+  1671     1  0 Nov24 ?        00:00:00 /lib/systemd/systemd --user</span><br></pre></td></tr></table></figure>
+<p>这样的话，即使退出当前shell终端，进程也不会结束，而是继续在进程id为1671的父进程下继续执行</p>
+<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>通过<code>man nohup</code>，可以看到这样的描述<code>Run COMMAND, ignoring hangup signals.</code><br>大致意思是，运行命令，忽略hangup信号。</p>
+<p>通过<code>nohup</code>命令运行程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br></pre></td></tr></table></figure></p>
+<p>通过终端上的反馈<code>nohup: ignoring input and appending output to &#39;nohup.out&#39;</code>可以知道，通过这种方式运行会忽视输入，并把输出重定向到了nohup.out文件里。同时通过<code>jobs</code>命令我们也可以看到刚才运行的进程在当前shell终端下，父进程仍然为当前终端。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1]+  Running                 nohup bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br></pre></td></tr></table></figure></p>
+<p>当我们关闭当前shell终端再重新打开一个shell终端时，通过<code>ps -ef|grep zoo</code>命令查找我们发现，该进程仍在运行，并且父进程变为了进程id为1671的systemd进程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root     29940  1671  1 15:12 pts/3</span><br></pre></td></tr></table></figure>
+<h3 id="disown"><a href="#disown" class="headerlink" title="disown"></a>disown</h3><p>当进程已经启动，无法通过<code>nohup</code>或<code>setsid</code>启动时，可以使用<code>disown</code>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#%1为当前作业编号</span><br><span class="line">disown -h %1</span><br></pre></td></tr></table></figure></p>
+<h2 id="FHS"><a href="#FHS" class="headerlink" title="FHS"></a>FHS</h2><p><a href="http://www.pathname.com/fhs/" target="_blank" rel="noopener">Filesystem Hierarchy Standard</a><br><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">Linux 系统目录结构</a><br>
+
+	<div class="row">
+    <embed src="fhs-2.3.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+</p>
+<h2 id="namespaces"><a href="#namespaces" class="headerlink" title="namespaces"></a>namespaces</h2><p><a href="https://www.cnblogs.com/bakari/p/8560437.html" target="_blank" rel="noopener">Docker 基础技术之 Linux namespace 详解</a></p>
+<h2 id="IPC-Interprocess-Communication"><a href="#IPC-Interprocess-Communication" class="headerlink" title="IPC(Interprocess Communication)"></a>IPC(Interprocess Communication)</h2><p>ipcmk ipcrm ipcs </p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><p><a href="https://segmentfault.com/a/1190000007394449" target="_blank" rel="noopener">sudoers的深入剖析与用户权限控制</a><br><a href="http://www.runoob.com/linux/linux-user-manage.html" target="_blank" rel="noopener">Linux 用户和用户组管理</a></p>
+<h3 id="update-alternatives"><a href="#update-alternatives" class="headerlink" title="update-alternatives"></a>update-alternatives</h3><blockquote>
+<p><strong>update-alternatives</strong>   creates,   removes,   maintains   and    displays information about the symbolic links comprising the Debian alternatives system.<br>It is possible for several programs fulfilling the same or similar functions to be installed on a single system at the same time. For example, many systems have several text editors installed at once. </p>
+</blockquote>
+<h3 id="iproute2"><a href="#iproute2" class="headerlink" title="iproute2"></a>iproute2</h3><p><strong>参考:</strong><br><a href="https://wiki.linuxfoundation.org/networking/iproute2" target="_blank" rel="noopener">description of iproute2</a><br><a href="https://my.oschina.net/yqz/blog/869111" target="_blank" rel="noopener">查看端口的占用情况</a></p>
+<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><p>基本语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables [-t 表名] &lt;-A|I|D|R&gt; 链名[规则编号] [-i|o 网卡名称] [-p 协议类型] [-s 源IP地址|源子网] [--sport 源端口号] [-d 目标IP地址|目标子网] [--dport 目标端口号] &lt;-j 动作&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>参考：</strong><br><a href="http://www.zsythink.net/archives/1199" target="_blank" rel="noopener">iptables详解</a></p>
+<h3 id="sudoers-file"><a href="#sudoers-file" class="headerlink" title="sudoers file"></a>sudoers file</h3><p><a href="https://www.garron.me/en/linux/visudo-command-sudoers-file-sudo-default-editor.html" target="_blank" rel="noopener">Take Control of your Linux | sudoers file: How to with Examples</a></p>
+<h3 id="tcpdump-wiresharks"><a href="#tcpdump-wiresharks" class="headerlink" title="tcpdump + wiresharks"></a>tcpdump + wiresharks</h3><p><a href="https://www.jianshu.com/p/8d9accf1d2f1" target="_blank" rel="noopener">聊聊 tcpdump 与 Wireshark 抓包分析</a></p>
+<h3 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h3><p><a href="http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html" target="_blank" rel="noopener">Systemd 入门教程：实战篇</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/25/shell/" rel="next" title="Shell">
+                <i class="fa fa-chevron-left"></i> Shell
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/26/io/" rel="prev" title="io">
+                io <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ccdongyu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台运行的几种方式"><span class="nav-number">1.</span> <span class="nav-text">后台运行的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#amp"><span class="nav-number">1.1.</span> <span class="nav-text">&amp;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctrl-z-bg"><span class="nav-number">1.2.</span> <span class="nav-text">ctrl+z bg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-和ctrl-z-bg的问题"><span class="nav-number">1.3.</span> <span class="nav-text">&amp;和ctrl+z bg的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setsid"><span class="nav-number">1.4.</span> <span class="nav-text">setsid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nohup"><span class="nav-number">1.5.</span> <span class="nav-text">nohup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#disown"><span class="nav-number">1.6.</span> <span class="nav-text">disown</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FHS"><span class="nav-number">2.</span> <span class="nav-text">FHS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#namespaces"><span class="nav-number">3.</span> <span class="nav-text">namespaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC-Interprocess-Communication"><span class="nav-number">4.</span> <span class="nav-text">IPC(Interprocess Communication)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools"><span class="nav-number">5.</span> <span class="nav-text">Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理"><span class="nav-number">5.1.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#update-alternatives"><span class="nav-number">5.2.</span> <span class="nav-text">update-alternatives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iproute2"><span class="nav-number">5.3.</span> <span class="nav-text">iproute2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables"><span class="nav-number">5.4.</span> <span class="nav-text">iptables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sudoers-file"><span class="nav-number">5.5.</span> <span class="nav-text">sudoers file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcpdump-wiresharks"><span class="nav-number">5.6.</span> <span class="nav-text">tcpdump + wiresharks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#systemd"><span class="nav-number">5.7.</span> <span class="nav-text">systemd</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ccdongyu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("XVkWpX9XaXuyPnTOrMeYYQj6-gzGzoHsz", "9wsNzr3uoSpL22a8GfreqshB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
